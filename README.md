@@ -21,11 +21,17 @@ This is a Spring Boot application that provides a RESTful API for a blog platfor
 Install and connect with database
 
 ```bash
+#changing the server port
+server.port=8888
 #db specific properties
-spring.datasource.url=jdbc:mysql://localhost:8888/blogApp
+spring.datasource.url=jdbc:mysql://localhost:3306/blogApp
 spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
 spring.datasource.username=root
 spring.datasource.password=port
+
+#ORM s/w specific properties
+spring.jpa.hibernate.ddl-auto=update
+spring.jpa.show-sql=true
 ```
 ## Features
 1. User Management: Users can register and log in to the application.
