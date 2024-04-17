@@ -98,7 +98,7 @@ cd BlogApp
 - ```DELETE /api/categories/{id}:``` Delete a category.
 #### Comment Endpoints
 - ```GET /api/comments/post/{postId}:``` Retrieve all comments for a specific post.
-- ```POST /api/comments/post/{postId}:``` Create a new comment for a post.
+- ```POST /api/comments//post/{postId}/customer/{customerId}:``` Create a new comment for a post.
 - Payload
    ```
    {
