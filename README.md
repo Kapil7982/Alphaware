@@ -52,22 +52,58 @@ cd BlogApp
 ## API Endpoints
 ### User Endpoints
 - ```POST /api/user/register:``` Register a new user.
-- ```POST /api/user/login:``` Log in an existing user.
+- Payload
+  ```
+  {
+  "custId": 0,
+  "name": "Kapil",
+  "email": "Kapil@gmail.com",
+  "password": "Kapil@123",
+  "role": "User"
+  }
+  ```
+- ```GET /api/user/login:``` Log in an existing user.
 #### Post Endpoints
 - ```GET /api/posts:``` Retrieve all posts.
 - ```GET /api/posts/{id}:``` Retrieve a specific post by ID.
 - ```GET /api/posts/feed:``` Retrieve all posts created on the current day.
 - ```POST /api/posts:``` Create a new post.
+- Payload
+  ```
+  {
+    "title": "New Post Title",
+    "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    "customer": {
+      "custId":1
+    },
+    "category": {
+        "id": 1
+    }
+  }
+  ```
 - ```PUT /api/posts/{id}:``` Update an existing post.
 - ```DELETE /api/posts/{id}:``` Delete a post.
 #### Category Endpoints
 - ```GET /api/categories:``` Retrieve all categories.
 - ```GET /api/categories/{id}:``` Retrieve a specific category by ID.
 - ```POST /api/categories:``` Create a new category.```
+- Payload
+   ```
+   {
+   "name": "Technology"
+   }
+   ```
+   
 - ```PUT /api/categories/{id}:``` Update an existing category.
 - ```DELETE /api/categories/{id}:``` Delete a category.
 #### Comment Endpoints
 - ```GET /api/comments/post/{postId}:``` Retrieve all comments for a specific post.
 - ```POST /api/comments/post/{postId}:``` Create a new comment for a post.
+- Payload
+   ```
+   {
+   "content": "string"
+   }
+   ```
 - ```PUT /api/comments/{id}:``` Update an existing comment.
 - ```DELETE /api/comments/{id}:``` Delete a comment.
