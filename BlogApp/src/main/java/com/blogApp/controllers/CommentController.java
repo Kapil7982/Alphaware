@@ -30,11 +30,13 @@
 	     return new ResponseEntity<>(comments, HttpStatus.OK);
 	 }
 	
-	 @PostMapping("/post/{postId}")
-	 public ResponseEntity<Comment> createComment(@PathVariable Long postId, @RequestBody Comment comment) {
-	     Comment createdComment = commentService.createComment(postId, comment);
+	 @PostMapping("/post/{postId}/customer/{customerId}")
+	 public ResponseEntity<Comment> createComment(@PathVariable Long postId, @PathVariable Long customerId, @RequestBody Comment comment) {
+	     Comment createdComment = commentService.createComment(postId, customerId, comment);
 	     return new ResponseEntity<>(createdComment, HttpStatus.CREATED);
 	 }
+
+
 	
 	 @PutMapping("/{id}")
 	 public ResponseEntity<Comment> updateComment(@PathVariable Long id, @RequestBody Comment comment) {

@@ -6,8 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.blogApp.models.Comment;
+import com.blogApp.models.Customer;
 import com.blogApp.models.Post;
 import com.blogApp.repositories.CommentRepository;
+import com.blogApp.repositories.CustomerRepository;
 import com.blogApp.repositories.PostRepository;
 
 @Service
@@ -18,6 +20,9 @@ public class CommentServiceImpl implements CommentService{
 
     @Autowired
     private PostRepository postRepository;
+    
+    @Autowired
+    private CustomerRepository customerRepository;
 	
 	@Override
 	public List<Comment> getCommentsByPostId(Long postId) {
@@ -25,12 +30,17 @@ public class CommentServiceImpl implements CommentService{
 	}
 
 	@Override
-	public Comment createComment(Long postId, Comment comment) {
-		Post post = postRepository.findById(postId)
-                .orElseThrow(() -> new RuntimeException("Post not found"));
-        comment.setPost(post);
-        return commentRepository.save(comment);
+	public Comment createComment(Long postId, Long customerId, Comment comment) {
+	    Post post = postRepository.findById(postId)
+	            .orElseThrow(() -> new RuntimeException("Post not found"));
+	    Customer customer = customerRepository.findByCustId(customerId)
+	            .orElseThrow(() -> new RuntimeException("Customer not found"));
+	    comment.setPost(post);
+	    comment.setCustomer(customer); // Set the customer for the comment
+	    return commentRepository.save(comment);
 	}
+
+
 
 	@Override
 	public Comment updateComment(Long id, Comment comment) {
