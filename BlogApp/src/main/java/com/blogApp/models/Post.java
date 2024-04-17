@@ -41,7 +41,7 @@ public class Post {
     @JsonIgnore
     private Category category;
 
-    @OneToMany(mappedBy = "post", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "post")
     private List<Comment> comments;
 
     @Column(nullable = false)

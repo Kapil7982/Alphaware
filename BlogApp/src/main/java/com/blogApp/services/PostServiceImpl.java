@@ -7,7 +7,11 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.blogApp.models.Category;
+import com.blogApp.models.Customer;
 import com.blogApp.models.Post;
+import com.blogApp.repositories.CategoryRepository;
+import com.blogApp.repositories.CustomerRepository;
 import com.blogApp.repositories.PostRepository;
 
 @Service
@@ -15,6 +19,13 @@ public class PostServiceImpl implements PostService{
 
 	@Autowired
     private PostRepository postRepository;
+	
+	@Autowired
+    private CustomerRepository customerRepository;
+	
+	@Autowired
+    private CategoryRepository categoryRepository;
+	
 	
 	@Override
 	public List<Post> getAllPosts() {
@@ -28,11 +39,20 @@ public class PostServiceImpl implements PostService{
 	}
 
 	@Override
-	public Post createPost(Post post) {
+	public Post createPost(Post post, Long customerId, Long categoryId) {
 		post.setCreatedAt(LocalDateTime.now());
-        post.setUpdatedAt(LocalDateTime.now());
-        return postRepository.save(post);
-	}
+	    post.setUpdatedAt(LocalDateTime.now());
+
+	    Customer customer = customerRepository.findByCustId(customerId)
+	            .orElseThrow(() -> new RuntimeException("Customer not found"));
+	    Category category = categoryRepository.findById(categoryId)
+	            .orElseThrow(() -> new RuntimeException("Category not found"));
+
+	    post.setCustomer(customer);
+	    post.setCategory(category);
+
+	    return postRepository.save(post);
+    }
 
 	@Override
 	public Post updatePost(Long id, Post updatedPost) {

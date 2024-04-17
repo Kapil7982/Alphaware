@@ -10,4 +10,5 @@ public interface CommentService {
 	public Comment createComment(Long postId, Comment comment);
 	public Comment updateComment(Long id, Comment comment);
 	public void deleteComment(Long id);
+	
 }

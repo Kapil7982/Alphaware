@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import com.blogApp.models.Post;
 import com.blogApp.services.PostService;
@@ -59,8 +60,8 @@ public class PostController {
     }
     
     @PostMapping
-    public ResponseEntity<Map<String, Object>> createPost(@RequestBody Post post) {
-        Post createdPost = postService.createPost(post);
+    public ResponseEntity<Map<String, Object>> createPost(@RequestBody Post post, @RequestParam Long customerId, @RequestParam Long categoryId) {
+        Post createdPost = postService.createPost(post,customerId, categoryId);
         Map<String, Object> response = new HashMap<>();
         response.put("status", "success");
         response.put("data", createdPost);
