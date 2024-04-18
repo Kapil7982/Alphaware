@@ -107,3 +107,26 @@ cd BlogApp
    ```
 - ```PUT /api/comments/{id}:``` Update an existing comment.
 - ```DELETE /api/comments/{id}:``` Delete a comment.
+## Swagger-UI
+![Screenshot 2024-04-18 102700](https://github.com/Kapil7982/Alphaware_Blog_Application/assets/103938868/fb512a1c-6049-4dc3-8443-b29ebc286a5d)
+---
+![Screenshot 2024-04-18 102435](https://github.com/Kapil7982/Alphaware_Blog_Application/assets/103938868/9c39659e-a8a4-407a-ab43-def0a9242270)
+---
+![Screenshot 2024-04-18 103339](https://github.com/Kapil7982/Alphaware_Blog_Application/assets/103938868/9a03d910-2cf7-4e55-a9c4-e191615fd9c4)
+---
+![Screenshot 2024-04-18 103419](https://github.com/Kapil7982/Alphaware_Blog_Application/assets/103938868/bb25271c-8b4c-4992-b8ae-224b6c6fd5e9)
+---
+![Screenshot 2024-04-18 103947](https://github.com/Kapil7982/Alphaware_Blog_Application/assets/103938868/b9f54c31-4fff-4fbe-a88e-a54d197533ba)
+---
+![Screenshot 2024-04-18 102841](https://github.com/Kapil7982/Alphaware_Blog_Application/assets/103938868/db431cf6-3c2b-470d-a14d-6c9070cc18f5)
+---
+![Screenshot 2024-04-18 102955](https://github.com/Kapil7982/Alphaware_Blog_Application/assets/103938868/79122ee9-8c00-4f8e-aa9d-190495deddca)
+---
+![Screenshot 2024-04-18 104853](https://github.com/Kapil7982/Alphaware_Blog_Application/assets/103938868/f92a2246-f7d1-498f-8fb1-11c933ebfc7f)
+
+
+
+
+
+
+
