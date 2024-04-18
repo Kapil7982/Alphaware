@@ -1,6 +1,8 @@
 # Blog Application
 This is a Spring Boot application that provides a RESTful API for a blog platform. Users can create, read, update, and delete blog posts, categories, and comments.Maintaining the Login and Signup with the Jwt token. With the help of the Jwt token maintaining the authority and authorization between Admin and User.
 
+## Video
+Video explanation of the application:- https://drive.google.com/file/d/1AYaKRuN8Lj05Wxk5orzX_OoeL5ow8aqC/view?usp=sharing
 ## Tech Stack
 - Java
 - Hibernate
@@ -8,7 +10,7 @@ This is a Spring Boot application that provides a RESTful API for a blog platfor
 - Spring Boot with JPA
 - MySQL
 - Maven
-- Lombak
+- Lombok
 
 ## Modules
 - User
