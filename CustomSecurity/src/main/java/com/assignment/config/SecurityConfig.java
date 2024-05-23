@@ -51,20 +51,20 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http.cors().and().csrf().disable()
-                .exceptionHandling().authenticationEntryPoint(unauthorizedHandler).and()
-                .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
-                .authorizeRequests()
-                .requestMatchers("/api/auth/**", "/oauth2/**").permitAll()
-                .requestMatchers("/api/test/user").hasRole("USER")
-                .requestMatchers("/api/test/admin").hasRole("ADMIN")
-                .anyRequest().authenticated()
-                .and()
-                .oauth2Login()
-                .successHandler(oAuth2LoginSuccessHandler);
+            .exceptionHandling().authenticationEntryPoint(unauthorizedHandler).and()
+            .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
+            .authorizeRequests()
+            .requestMatchers("/api/auth/**", "/oauth2/**").permitAll()
+            .requestMatchers("/api/test/user").hasRole("USER")
+            .requestMatchers("/api/test/admin").hasRole("ADMIN")
+            .requestMatchers("/api/test/manager").hasRole("MANAGER")
+            .requestMatchers("/api/test/waiter").hasRole("WAITER")
+            .anyRequest().authenticated()
+            .and()
+            .oauth2Login()
+            .successHandler(oAuth2LoginSuccessHandler);
 
-        
         http.addFilterBefore(jwtAuthenticationFilter(), UsernamePasswordAuthenticationFilter.class);
-
         return http.build();
     }
 }
