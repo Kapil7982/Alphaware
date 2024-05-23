@@ -53,7 +53,7 @@ app.jwtExpirationInMs=86400000
 ```
 The application will be available at http://localhost:8080.
 
-Usage
+### Usage
 
 Register a new user by sending a POST request to ```/api/auth/signup``` with a JSON payload containing the ```username```, ```password```, and optional ```roles``` (e.g., ```ROLE_USER```, ```ROLE_ADMIN```, ```ROLE_MANAGER```, ```ROLE_WAITER```).
 Log in by sending a POST request to ```/api/auth/login``` with a JSON payload containing the ```username``` and ```password```. The response will contain the JWT access token.
